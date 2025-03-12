@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import PwaInstall from "./components/PwaInstall";
+import QuoteBox from "./components/QuoteBox";
 
 export default function Home() {
   const [randomNumber, setRandomNumber] = useState<number | null>(null);
@@ -71,6 +72,8 @@ export default function Home() {
             <p className="text-sm text-foreground/60 max-w-xs">
               {randomNumber !== null && "You&apos;re part of a community. None of you are truly alone in how you feel."}
             </p>
+            
+            {randomNumber !== null && <QuoteBox />}
             
             {randomNumber !== null && (
               <a 
