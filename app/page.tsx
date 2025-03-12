@@ -74,7 +74,7 @@ export default function Home() {
             
             {randomNumber !== null && (
               <a 
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`I just discovered I am one of ${randomNumber} people feeling lonely right now. We are all in this together. Join us at lonely-again.vercel.app #YouAreNotAlone`)}`}
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`lonely but not alone - ${randomNumber} others feel the same, if you feeling lonely join us at lonely-again.vercel.app`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full
