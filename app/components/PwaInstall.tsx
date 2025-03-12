@@ -13,17 +13,13 @@ export default function PwaInstall() {
   const [isInstalled, setIsInstalled] = useState(false);
 
   useEffect(() => {
-    // Register service worker
+    // Service worker is registered by next-pwa
+    console.log('PWA component mounted - waiting for install prompt event');
+    
+    // Debug service worker status
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then(
-          (registration) => {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          },
-          (err) => {
-            console.log('ServiceWorker registration failed: ', err);
-          }
-        );
+      navigator.serviceWorker.getRegistrations().then(registrations => {
+        console.log('Service worker registrations:', registrations);
       });
     }
 
@@ -61,7 +57,14 @@ export default function PwaInstall() {
     setInstallPrompt(null);
   };
 
-  if (!installPrompt || isInstalled) return null;
+  // For debugging purposes, always show the button in development
+  const isDev = process.env.NODE_ENV === 'development';
+  
+  // In production, only show when installable
+  if ((!installPrompt || isInstalled) && !isDev) {
+    console.log('Install button hidden - prompt available:', !!installPrompt, 'isInstalled:', isInstalled);
+    return null;
+  }
 
   return (
     <div className="fixed bottom-4 right-4 z-50 group">
@@ -74,6 +77,7 @@ export default function PwaInstall() {
                   bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all
                   text-sm font-medium animate-pulse hover:animate-none
                   border-2 border-white/20"
+        style={{ animation: 'pulse 2s infinite' }}
         aria-label="Install lonely app"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

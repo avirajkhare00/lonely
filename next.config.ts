@@ -7,9 +7,13 @@ const nextConfig: NextConfig = {
 
 const pwaConfig = withPWA({
   dest: 'public',
-  register: false, // We handle registration in our custom component
+  register: true, // Let next-pwa handle registration
   skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development'
+  disable: process.env.NODE_ENV === 'development',
+  buildExcludes: [/middleware-manifest.json$/],
+  fallbacks: {
+    document: '/' // Fallback for navigation requests
+  }
 });
 
 export default pwaConfig(nextConfig);
