@@ -15,8 +15,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "lonely | You're not alone",
   description: "A simple app for when you're feeling lonely",
+  manifest: "/manifest.json",
   icons: {
     icon: "/favicon.ico",
+    apple: "/icon-192.png",
+  },
+  themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#0a0a0a" }, { media: "(prefers-color-scheme: light)", color: "#ffffff" }],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "lonely",
   },
 };
 

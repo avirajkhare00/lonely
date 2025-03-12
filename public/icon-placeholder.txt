@@ -1,0 +1,12 @@
+To complete the PWA setup, you'll need to create two PNG icon files:
+
+1. icon-192.png (192x192 pixels)
+2. icon-512.png (512x512 pixels)
+
+You can create these icons using any image editor or convert the SVG files we've already created using an online converter like https://convertio.co/svg-png/ or https://ezgif.com/svg-to-png
+
+The icons should be placed in the /public directory.
+
+Alternatively, you can install the sharp package and use our script:
+1. npm install sharp
+2. node scripts/generate-icons.js

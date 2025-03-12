@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PwaInstall from "./components/PwaInstall";
 
 export default function Home() {
   const [randomNumber, setRandomNumber] = useState<number | null>(null);
@@ -24,6 +25,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gradient-to-b from-background to-background/80 text-foreground">
+      <PwaInstall />
       <main className="flex flex-col items-center justify-center gap-12 w-full max-w-md mx-auto text-center">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
           lonely
