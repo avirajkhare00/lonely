@@ -13,6 +13,14 @@ export default function Home() {
     setLoading(true);
     setHasClicked(true);
     
+    // If randomNumber is not null, just increment it by 1
+    if (randomNumber !== null) {
+      setRandomNumber(randomNumber + 1);
+      setLoading(false);
+      return;
+    }
+    
+    // Otherwise fetch from API
     try {
       const response = await fetch('/api/connect');
       const data = await response.json();
