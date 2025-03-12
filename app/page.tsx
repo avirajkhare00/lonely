@@ -70,7 +70,7 @@ export default function Home() {
             </p>
             
             <p className="text-sm text-foreground/60 max-w-xs">
-              {randomNumber !== null && "You&apos;re part of a community. None of you are truly alone in how you feel."}
+              {randomNumber !== null && "You are part of a community. None of you are truly alone in how you feel."}
             </p>
             
             {randomNumber !== null && <QuoteBox />}
